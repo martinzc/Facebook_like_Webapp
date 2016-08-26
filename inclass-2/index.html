@@ -9,8 +9,8 @@
 </head>
 <body>
 	<form id="usrform" method="" action="#" onsubmit="return checkValidation()">
-		<p>Name:<br>
-		<input type="text" name="name" required>
+		<p>Name: Character Only<br>
+		<input type="text" name="name" pattern="([A-Za-z]| ){1,30}" required>
 		</p>
 		<p>Adress: ### Street Name<br>
 		<input type="text" name="address" pattern="\d{1,5}([A-Za-z]| ){1,30}" required>
