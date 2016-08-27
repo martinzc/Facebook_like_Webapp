@@ -1,0 +1,61 @@
+<!doctype html>
+
+<html lang="en">
+	<head>
+	  <title>Assignment 1: Simple Page</title>
+	  <meta charset="utf-8">
+	  <meta name="description" content="Assignment 1: Simple Page">
+	  <meta name="author" content="Chao (Martin) Zhou">
+	</head>
+	<body>
+	</body>
+</html>
+
+<script type="text/javascript">
+	// Create new table in body
+	var body = document.getElementsByTagName('body')[0];
+	var table = document.createElement('table');
+	table.style.width = '100%';
+	table.setAttribute('border', '1');
+	// Populate table with header
+	var tableHeader = table.createTHead();
+	var row = tableHeader.insertRow(0);
+	var cellKey = row.insertCell(0);
+	var cellValue = row.insertCell(1);
+	cellKey.innerHTML = "<b>Key</b>";
+	cellValue.innerHTML = "<b>Value</b>";
+	// Parse the URI into several key-value pair
+	var queryString = window.location.search;
+	queryString = queryString.substring(1);
+	var vars = queryString.split('&');
+	// Populate table body
+   var tableBody = document.createElement('tbody');
+	for (var i = 0; i < vars.length; i++) {
+		var pair = vars[i].split('=');
+		var tableRow = document.createElement('tr');
+		var cellKey = document.createElement("td");  
+		var cellVal = document.createElement("td");
+		if (pair[0] == "timeStamp") {
+			// Parse time stamp in human readable format
+			var a = new Date(parseInt(pair[1], 10));
+			var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+			var year = a.getFullYear();
+			var month = months[a.getMonth()];
+			var date = a.getDate();
+			var hour = a.getHours();
+			var min = a.getMinutes();
+			var sec = a.getSeconds();
+			var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+			cellKey.appendChild(document.createTextNode(decodeURIComponent(pair[0])));
+			cellVal.appendChild(document.createTextNode(decodeURIComponent(time)));
+		} else {
+			cellKey.appendChild(document.createTextNode(decodeURIComponent(pair[0])));
+			cellVal.appendChild(document.createTextNode(decodeURIComponent(pair[1])));
+		}
+		tableRow.appendChild(cellKey);
+		tableRow.appendChild(cellVal);
+		tableBody.appendChild(tableRow);
+	}
+	table.appendChild(tableBody);
+	body.appendChild(table)
+</script>

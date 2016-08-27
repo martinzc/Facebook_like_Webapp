@@ -1,66 +1,96 @@
 <!doctype html>
 
 <html lang="en">
-<head>
-  <title>In Class Exercise 2</title>
-  <meta charset="utf-8">
-  <meta name="description" content="In Class Exercise 2">
-  <meta name="author" content="Chao (Martin) Zhou">
-</head>
-<body>
-	<form id="usrform" method="" action="#" onsubmit="return checkValidation()">
-		<p>Name: Character Only<br>
-		<input type="text" name="name" pattern="([A-Za-z]| ){1,30}" required>
-		</p>
-		<p>Adress: ### Street Name<br>
-		<input type="text" name="address" pattern="\d{1,5}([A-Za-z]| ){1,30}" required>
-		</p>
-		<p>Phone Number: 123-123-1234<br>
-		<input type="text" name="telephone" pattern="\d{3}-\d{3}-\d{4}" required>
-		</p>
-		<p>Pizza Size<br>
-		<input type="radio" name="size" value="large"> Large
-		<input type="radio" name="size" value="medium"> Medium
-		<input type="radio" name="size" value="small"> Small
-		</p>
-		<p>Pizza Toppings<br>
-		<input type="checkbox" name="topping" value="sausage">Sausage
-		<input type="checkbox" name="topping" value="Peperoni">Peperoni
-		<input type="checkbox" name="topping" value="Olives">Olives
-		<input type="checkbox" name="topping" value="Onions">Onions
-		</p>
-		<input type="submit" value="Submit">
-  		<input type="reset" value="Clear">
-	</form>
-</body>
+	<head>
+	  <title>Assignment 1: Simple Page</title>
+	  <meta charset="utf-8">
+	  <meta name="description" content="Assignment 1: Simple Page">
+	  <meta name="author" content="Chao (Martin) Zhou">
+	</head>
+	<body>
+		<form id="usrform" method="get" action="formProcessor.html" onsubmit="return checkValidation()">
+
+	  		<input type="hidden" name="timeStamp">
+
+			<p>Account Name: <br>
+			<small>Accept only upper or lower case letters and numbers, but may not start with a number</small><br>
+			<input type="text" name="accountName" pattern="([A-Za-z]){1}([A-Za-z0-9]){0,30}" required>
+			</p>
+
+			<p>Display Name (Optional): <br>
+			<input type="text" name="displayName" pattern="([A-Za-z0-9]){0,30}">
+			</p>
+
+			<p>Email Address: <br>
+			<input type="email" name="email" required>
+			</p>
+
+			<p>Phone Number: <br>
+			<small>Format should be like 333-333-4444</small><br>
+			<input type="text" name="telephone" pattern="\d{3}-\d{3}-\d{4}" required>
+			</p>
+
+			<p>Date Of Birth: <br>
+			<input type="date" name="birthday" required>
+			</p>
+
+			<p>Zipcode: <br>
+			<input type="text" name="zipCode" pattern="([A-Za-z0-9]){1,10}" required>
+			</p>
+
+			<p>Password: <br>
+			<input type="password" name="password" required>
+			</p>
+
+			<p>Password Confirmation: <br>
+			<input type="password" name="passwordConfirmation" required>
+			</p>
+
+			<input type="submit" value="Submit">
+
+	  		<input type="reset" value="Clear">
+
+		</form>
+	</body>
 </html>
 
 <script type="text/javascript">
+
+// Set the value of hidden field to be the time when the page is loaded
+	var timeLoaded = new Date();
+	timeLoaded = timeLoaded.getTime();
+	document.getElementsByName("timeStamp")[0].value = timeLoaded;
+
 	function checkValidation() {
-		if (checkRadio() && checkCheckBox()) {
-			return true
+		if (checkAge() && checkPassword()) {
+			return true;
 		} else {
-			return false
+			return false;
 		}
 	}
-	function checkRadio() {
-		var radioLst = document.getElementsByName('size');
-		for (var i=0; i<radioLst.length; i++) {
-			if (radioLst[i].checked) {
-				return true;
-			} 
+
+	function checkAge() {
+		var dateOfBirth=new Date(document.getElementsByName("birthday")[0].value);
+		var ageDiffMs = Date.now() - dateOfBirth.getTime();
+		var ageDate = new Date(ageDiffMs);
+		var age = Math.abs(ageDate.getUTCFullYear() - 1970);
+		if (age < 18) {
+	 		window.alert("User must be 18 years of age or older");
+			return false;
+		} else {
+			return true;
 		}
-	 	window.alert("Please check one size")
-		return false;
 	}
-	function checkCheckBox() {
-		var checkboxLst = document.getElementsByName('topping');
-		for (var i=0; i<checkboxLst.length; i++) {
-			if (checkboxLst[i].checked) {
-				return true;
-			} 
+
+	function checkPassword() {
+		var password = document.getElementsByName('password')[0].value;
+		var passwordConfirmation = document.getElementsByName('passwordConfirmation')[0].value;
+		if (password != passwordConfirmation) {
+	 		window.alert("The two passwords you enter don't match");
+			return false;
+		} else {
+			return true;
 		}
-	 	window.alert("Please check one topping")
-		return false;
 	}
+
 </script>
