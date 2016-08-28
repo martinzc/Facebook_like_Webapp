@@ -7,27 +7,31 @@
 	  <meta name="description" content="Assignment 1: Simple Page">
 	  <meta name="author" content="Chao (Martin) Zhou">
 	</head>
-	<body>
+	<body style="padding-left: 50px">
+
+		<img src="http://www.rice.edu/_images/rice-logo.jpg" width="200px" alt="Image Missing">
+
+		<h1>Registration for Ricebook</h1>
+
 		<form id="usrform" method="get" action="formProcessor.html" onsubmit="return checkValidation()">
 
 	  		<input type="hidden" name="timeStamp">
 
 			<p>Account Name: <br>
 			<small>Accept only upper or lower case letters and numbers, but may not start with a number</small><br>
-			<input type="text" name="accountName" pattern="([A-Za-z]){1}([A-Za-z0-9]){0,30}" required>
+			<input type="text" name="accountName" pattern="([A-Za-z]){1}([A-Za-z0-9])*" required>
 			</p>
 
 			<p>Display Name (Optional): <br>
-			<input type="text" name="displayName" pattern="([A-Za-z0-9]){0,30}">
+			<input type="text" name="displayName" pattern="([A-Za-z0-9])*">
 			</p>
 
 			<p>Email Address: <br>
-			<input type="email" name="email" required>
+			<input type="email" name="email" placeholder="x@x.xx" required>
 			</p>
 
 			<p>Phone Number: <br>
-			<small>Format should be like 333-333-4444</small><br>
-			<input type="text" name="telephone" pattern="\d{3}-\d{3}-\d{4}" required>
+			<input type="text" name="telephone" pattern="\d{3}-\d{3}-\d{4}" placeholder="xxx-xxx-xxxx" required>
 			</p>
 
 			<p>Date Of Birth: <br>
@@ -35,7 +39,7 @@
 			</p>
 
 			<p>Zipcode: <br>
-			<input type="text" name="zipCode" pattern="([A-Za-z0-9]){1,10}" required>
+			<input type="text" name="zipCode" pattern="([A-Za-z0-9])+" required>
 			</p>
 
 			<p>Password: <br>
