@@ -1,61 +1,65 @@
 <!doctype html>
 
 <html lang="en">
-	<head>
-	  <title>Assignment 1: Simple Page</title>
-	  <meta charset="utf-8">
-	  <meta name="description" content="Assignment 1: Simple Page">
-	  <meta name="author" content="Chao (Martin) Zhou">
-	</head>
-	<body style="padding-left: 50px">
 
-		<img src="http://www.rice.edu/_images/rice-logo.jpg" width="200px" alt="Image Missing">
+<head>
 
-		<h1>Registration for Ricebook</h1>
+	<title>Assignment 1: Simple Page</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Assignment 1: Simple Page">
+	<meta name="author" content="Chao (Martin) Zhou">
+	
+</head>
 
-		<form id="usrform" method="get" action="formProcessor.html" onsubmit="return checkValidation()">
+<body style="padding-left: 50px">
 
-	  		<input type="hidden" name="timeStamp">
+	<img src="http://www.rice.edu/_images/rice-logo.jpg" width="200px" alt="Image Missing">
 
-			<p>Account Name: <br>
-			<small>Accept only upper or lower case letters and numbers, but may not start with a number</small><br>
-			<input type="text" name="accountName" pattern="([A-Za-z]){1}([A-Za-z0-9])*" required>
-			</p>
+	<h1>Registration for Ricebook</h1>
 
-			<p>Display Name (Optional): <br>
-			<input type="text" name="displayName" pattern="([A-Za-z0-9])*">
-			</p>
+	<form id="usrform" method="get" action="formProcessor.html" onsubmit="return checkValidation()">
 
-			<p>Email Address: <br>
-			<input type="email" name="email" placeholder="x@x.xx" required>
-			</p>
+  		<input type="hidden" name="timeStamp">
 
-			<p>Phone Number: <br>
-			<input type="text" name="telephone" pattern="\d{3}-\d{3}-\d{4}" placeholder="xxx-xxx-xxxx" required>
-			</p>
+		<p>Account Name: <br/>
+		<small>Accept only upper or lower case letters and numbers, but may not start with a number</small><br/>
+		<input type="text" name="accountName" pattern="([A-Za-z]){1}([A-Za-z0-9])*" required>
+		</p>
 
-			<p>Date Of Birth: <br>
-			<input type="date" name="birthday" required>
-			</p>
+		<p>Display Name (Optional): <br/>
+		<input type="text" name="displayName" pattern="([A-Za-z0-9])*">
+		</p>
 
-			<p>Zipcode: <br>
-			<input type="text" name="zipCode" pattern="\d{5}" required>
-			</p>
+		<p>Email Address: <br/>
+		<input type="email" name="email" placeholder="x@x.xx" required>
+		</p>
 
-			<p>Password: <br>
-			<input type="password" name="password" required>
-			</p>
+		<p>Phone Number: <br/>
+		<input type="text" name="telephone" pattern="\d{3}-\d{3}-\d{4}" placeholder="xxx-xxx-xxxx" required>
+		</p>
 
-			<p>Password Confirmation: <br>
-			<input type="password" name="passwordConfirmation" required>
-			</p>
+		<p>Date Of Birth: <br/>
+		<input type="date" name="birthday" required>
+		</p>
 
-			<input type="submit" value="Submit">
+		<p>Zipcode: <br/>
+		<input type="text" name="zipCode" pattern="\d{5}" required>
+		</p>
 
-	  		<input type="reset" value="Clear">
+		<p>Password: <br/>
+		<input type="password" name="password" required>
+		</p>
 
-		</form>
-	</body>
+		<p>Password Confirmation: <br/>
+		<input type="password" name="passwordConfirmation" required>
+		</p>
+
+		<input type="submit" value="Submit">
+
+  		<input type="reset" value="Clear">
+
+	</form>
+</body>
 </html>
 
 <script type="text/javascript">
