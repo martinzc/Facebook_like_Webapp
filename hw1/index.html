@@ -13,9 +13,7 @@
 
 <body style="padding-left: 50px">
 
-	<img src="http://www.rice.edu/_images/rice-logo.jpg" width="200px" alt="Image Missing">
-
-	<h1>Registration for Ricebook</h1>
+	<h1><img src="http://www.rice.edu/_images/rice-logo.jpg" width="200px" alt="Image Missing"> Registration Page for Ricebook</h1>
 
 	<form id="usrform" method="get" action="formProcessor.html" onsubmit="return checkValidation()">
 
@@ -31,7 +29,7 @@
 		</p>
 
 		<p>Email Address: <br/>
-		<input type="email" name="email" placeholder="x@x.xx" required>
+		<input type="text" name="email" placeholder="x@x.xx" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{1,4}" required>
 		</p>
 
 		<p>Phone Number: <br/>
@@ -43,7 +41,8 @@
 		</p>
 
 		<p>Zipcode: <br/>
-		<input type="text" name="zipCode" pattern="\d{5}" required>
+		<small>Must be 5-digit number</small><br/>
+		<input type="text" name="zipCode" pattern="\d{5}" placeholder="xxxxx" required>
 		</p>
 
 		<p>Password: <br/>
