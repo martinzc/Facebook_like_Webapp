@@ -5,13 +5,62 @@
 <head>
 	<title>Assignment 2: Dynamic Page - Profile Page</title>
 	<meta charset="utf-8">
-	<meta name="description" content="Main Page">
+	<meta name="description" content="Profile Page">
 	<meta name="author" content="Chao (Martin) Zhou">
-	<script src="./main.js"></script>
-	<link rel="stylesheet" type="text/css" href="./style.css">
+	<script src="./profile.js"></script>
+	<link rel="stylesheet" type="text/css" href="./styles.css">
 </head>
 
 <body>
+	<div id="title">
+
+		<img src="http://www.rice.edu/_images/rice-logo.jpg" width="100px" alt="Image Missing">
+		<h1>Ricebook</h1>
+		<div id="profileLink"><a href="./main.html">Main Page</a></div>
+
+	</div>
+
+	<div id="input">
+
+		<p>Display Name: <br/>
+		<small>Accept letters, numbers and spaces</small><br/>
+		<input type="text" id="displayName" name="inputVal" pattern="([A-Za-z0-9 ])*"><span id="changingName">Martin Zhou</span>
+		</p>
+
+		<p>Email Address: <br/>
+		<small>Must be the format x@x.xx</small><br/>
+		<input type="text" id="email" name="inputVal" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{1,4}"><span id="changingEmail">martinzhou@rice.edu</span>
+		</p>
+
+		<p>Phone Number: <br/>
+		<small>Must be the format xxx-xxx-xxxx</small><br/>
+		<input type="text" id="telephone" name="inputVal" pattern="\d{3}-\d{3}-\d{4}"><span id="changingPhone">832-538-8422</span>
+		</p>
+
+		<p>Zipcode: <br/>
+		<small>Must be 5-digit number</small><br/>
+		<input type="text" id="zipCode" name="inputVal" pattern="\d{5}" ><span id="changingZip">77005</span>
+		</p>
+
+		<p>Password: <br/>
+		<input type="password" id="password" name="inputVal"><span id="changingPw">12345</span>
+		</p>
+
+		<p>Password Confirmation: <br/>
+		<input type="password" id="passwordConfirmation" name="inputVal">
+		</p>
+
+		<button type="submit" onclick="changeValue()">Change Profile Info</button>
+
+	</div>
+	display name
+email address
+phone number
+zipcode
+password
+password confirmation
+Update button to submit the changes
+Link to return to main page
 </body>
 
 </html>

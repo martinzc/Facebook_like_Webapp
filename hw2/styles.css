@@ -1,0 +1,67 @@
+body {
+    background-color: lightblue;
+}
+
+
+
+table {
+	margin-left: 5%;
+	margin-right: 5%;
+	width: 90%;
+	border-collapse: separate;
+	border-spacing: 15px;
+}
+
+tr {
+	outline: solid blue;
+	outline-style: dashed;
+	align: center;
+}
+
+td {
+	border-style: outset; 
+	border-bottom: 15px;
+	border-radius: 10px;
+	background-color: white;
+}
+
+div#title {
+	width: 100%;
+   text-align: center;
+   display: all; 
+   background-color: white;
+}
+
+div#profileLink {
+	text-align: right;
+	padding: 10px;
+}
+
+td h2 {
+	color: blue;
+}
+
+td p {
+	font-family: loremipsum;
+	font-size: 15px;
+}
+
+td button {
+	width: 100%;
+	background-color: grey;
+	color: white;
+}
+
+td.picCell {
+	width: 50%;
+}
+
+td.textCell {
+	width: 40%;
+}
+
+td.btnCell {
+	margin:auto;
+	display:block;
+	width: 10%;
+}
