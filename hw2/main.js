@@ -42,6 +42,7 @@ function shufflePic(index) {
 		// Interval is a random number from 1000 to 4000 milliseconds
 		var randomInterval = Math.random() * 3000 + 1000
 		var picIndex = 0;
+		// Set an interval that loops through the picture list and sets different pictures
 		var interval = window.setInterval(function() {
 			var pic = tablePicList[index];
 			pic.innerHTML = '<img src="' + imgLinkList[picIndex] + '" width=100%>';
@@ -52,10 +53,9 @@ function shufflePic(index) {
 	}
 
 function toggleButton(button) {
-	console.log("button pressed")
-	console.log(button.innerHTML)
 	if (button.innerHTML == "Pause") {
 		button.innerHTML = "Resume";
+		// Pause specific picutre from changing
 		switch(button.value) {
 		    case "0":
 		        window.clearInterval(interval1);
@@ -74,6 +74,7 @@ function toggleButton(button) {
 		}
 	} else {
 		button.innerHTML = "Pause";
+		// Resume specific picture that has been paused
 		switch(button.value) {
 		    case "0":
 		        interval1 = shufflePic(0);
