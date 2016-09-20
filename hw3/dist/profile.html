@@ -1,0 +1,73 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<title>Assignment 3: Draft Front End</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Profile Page">
+	<meta name="author" content="Chao (Martin) Zhou">
+	<script src="./profile.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./styles.css">
+</head>
+
+<body>
+	<div class="row">
+		<nav class="navbar navbar-default navbar-fixed-top" id="navBar">
+			<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">RiceBook</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a href="./main.html">Home</a></li>
+				<li class="active"><a href="./profile.html">Profile</a></li>
+				<li><a href="./index.html">Log Out</a></li>
+			</ul>
+			</div>
+		</nav>	
+	</div>
+
+	<div class="container-fluid well well-lg" id="profileForm">
+		<div class="row">
+		<div class="col-sm-1">
+		</div>
+		<div class="col-sm-3">
+			<img src="img/dog1.jpeg" alt="Profile Pic" id="profilePic"><br><br>
+			<input type="file">
+			<button type="button" class="btn btn-default">Update Profile Pic</button>
+		</div>
+		<div class="col-sm-1">
+		</div>
+		<div class="col-sm-5">
+			<p>Display Name: <br/>
+			<small>Accept letters, numbers and spaces</small><br/>
+			<input type="text" id="displayName" name="inputVal" pattern="([A-Za-z0-9 ])*"><span id="changingName">YellowDontMellow</span>
+			</p>
+			<p>Email Address: <br/>
+			<small>Must be the format x@x.xx</small><br/>
+			<input type="text" id="email" name="inputVal" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{1,4}"><span id="changingEmail">dogsLifeMatters@gmail.com</span>
+			</p>
+			<p>Phone Number: <br/>
+			<small>Must be the format xxx-xxx-xxxx</small><br/>
+			<input type="text" id="telephone" name="inputVal" pattern="\d{3}-\d{3}-\d{4}"><span id="changingPhone">222-333-4232</span>
+			</p>
+			<p>Zipcode: <br/>
+			<small>Must be 5-digit number</small><br/>
+			<input type="text" id="zipCode" name="inputVal" pattern="\d{5}" ><span id="changingZip">77005</span>
+			</p>
+			<p>Password: <br/>
+			<input type="password" id="password" name="inputVal">
+			</p>
+			<p>Password Confirmation: <br/>
+			<input type="password" id="passwordConfirmation" name="inputVal">
+			</p>
+			<button type="submit" class="btn btn-primary" onclick="changeValue()">Change Profile Info</button>
+		</div>
+		<div class="col-sm-2">
+		</div>
+	</div>
+
+</body>
+
+</html>

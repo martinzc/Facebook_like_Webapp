@@ -1,0 +1,272 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<title>Assignment 3: Draft Front End</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Main Page">
+	<meta name="author" content="Chao (Martin) Zhou">
+	<script src="./main.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./styles.css">
+</head>
+
+<body>
+	<div class="row">
+		<nav class="navbar navbar-default navbar-fixed-top" id="navBar">
+			<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">RiceBook</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="./main.html">Home</a></li>
+				<li><a href="./profile.html">Profile</a></li>
+				<li><a href="./index.html">Log Out</a></li>
+			</ul>
+			<div class="col-sm-3">
+				<form class="navbar-form">
+					<div class="input-group">
+						<input type="text" class="form-control" id="searchBar" placeholder="Search">
+					</div>
+				</form>
+			</div>
+			</div>
+		</nav>	
+	</div>
+	<div class="row">
+	<div class="container-fluid" id="pageContent">
+		<div class="col-sm-1">
+		</div>
+		<div class="col-sm-2  well well-sm">
+			<img src="img/dog1.jpeg" alt="Profile Pic" id="profilePic">
+			<p class="text-primary">YellowDontMellow</p>
+			<small class="text-info" id="status">Status: <br>Hungry for bones</small>
+			<textarea class="form-control" rows="2" id="updateStatus" placeholder="Update your status"></textarea>
+			<button type="button" class="btn btn-primary center-block" id="updateStatusBotton" onclick="updateStatus()">Update</button>
+			<br>
+			<p class="text-info" id="status">Followed Users</p>
+			<input type="text" class="form-control" id="followUser">
+			<button type="button" class="btn btn-primary center-block">Follow User</button><br>
+			<div class="well well-sm" id="followedUser">
+				<img src="img/dog2.jpeg" alt="Profile Pic" id="profilePic">
+				<p class="text-primary">CoolDog</p>
+				<small class="text-info" id="status">Status: <br>Be like CoolDog</small><br><br>
+				<button type="button" class="btn btn-primary center-block" id="unfollow">Unfollow</button>
+			</div>
+			<div class="well well-sm">
+				<img src="img/dog3.jpeg" alt="Profile Pic" id="profilePic">
+				<p class="text-primary">Daug</p>
+				<small class="text-info" id="status">Status: <br>But that's none of your business</small><br><br>
+				<button type="button" class="btn btn-primary center-block" id="unfollow">Unfollow</button>
+			</div>
+			<div class="well well-sm">
+				<img src="img/dog4.jpeg" alt="Profile Pic" id="profilePic">
+				<p class="text-primary">MemeLord</p>
+				<small class="text-info" id="status">Status: <br>Darkest Me Me</small><br><br>
+				<button type="button" class="btn btn-primary center-block" id="unfollow">Unfollow</button>
+			</div>
+		</div>
+		<div class="col-sm-8">
+			<div class="well well-lg">
+				<textarea class="form-control" rows="3" id="newPost" placeholder="Make a new post"></textarea>
+				<div class="row">
+				<div class="col-sm-1">
+					<button type="button" class="btn btn-primary">Post</button>
+				</div>
+				<div class="col-sm-1">
+					<button type="button" class="btn btn-danger" onclick="clearNewPost()">Cancel</button>
+				</div>
+				<div class="col-sm-4">
+				</div>
+				<div class="col-sm-4">
+					<input type="file" class="form-control">
+				</div>
+				<div class="col-sm-1">
+					<button type="button" class="btn btn-default center-block">Upload Pic</button>
+				</div>
+				<div class="col-sm-1">
+				</div>
+				</div>
+			</div>
+			<div class="well well-lg post" >
+				<div class="row">
+				<div class="col-sm-3">
+				</div>
+				<div class="col-sm-6">
+					<img src="img/event1.jpeg" alt="Post Pic" id="postPic">
+					<p>I fell asleep while eating lol</p>
+				</div>
+				<div class="col-sm-3">
+				</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-2">
+						<button type="button" class="btn btn-default">Comment</button>
+					</div>
+					<div class="col-sm-1">
+						<button type="button" class="btn btn-default">Edit</button>
+					</div>
+				<div class="col-sm-9">
+				</div>
+				</div>
+			</div>
+			<div class="well well-lg post" >
+				<div class="row">
+				<div class="col-sm-3">
+				</div>
+				<div class="col-sm-6">
+					<img src="img/event2.jpeg" alt="Post Pic" id="postPic">
+					<p>I am out-running this two-leg walker. Hoo Yay!</p>
+				</div>
+				<div class="col-sm-3">
+				</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-2">
+						<button type="button" class="btn btn-default">Comment</button>
+					</div>
+					<div class="col-sm-1">
+						<button type="button" class="btn btn-default">Edit</button>
+					</div>
+				<div class="col-sm-9">
+				</div>
+				</div>
+			</div>
+			<div class="well well-lg post" >
+				<div class="row">
+				<div class="col-sm-3">
+				</div>
+				<div class="col-sm-6">
+					<img src="img/event3.jpeg" alt="Post Pic" id="postPic">
+					<p>Look at Bob's face lolz.</p>
+				</div>
+				<div class="col-sm-3">
+				</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-2">
+						<button type="button" class="btn btn-default">Comment</button>
+					</div>
+					<div class="col-sm-1">
+						<button type="button" class="btn btn-default">Edit</button>
+					</div>
+				<div class="col-sm-9">
+				</div>
+				</div>
+			</div>
+			<div class="well well-lg post" >
+				<div class="row">
+				<div class="col-sm-3">
+				</div>
+				<div class="col-sm-6">
+					<img src="img/event4.jpeg" alt="Post Pic" id="postPic">
+					<p>Yoga Yoga Yoga</p>
+				</div>
+				<div class="col-sm-3">
+				</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-2">
+						<button type="button" class="btn btn-default">Comment</button>
+					</div>
+					<div class="col-sm-1">
+						<button type="button" class="btn btn-default">Edit</button>
+					</div>
+				<div class="col-sm-9">
+				</div>
+				</div>
+			</div>
+			<div class="well well-lg post" >
+				<div class="row">
+				<div class="col-sm-3">
+				</div>
+				<div class="col-sm-6">
+					<p>Are there any female dog in town?</p>
+				</div>
+				<div class="col-sm-3">
+				</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-2">
+						<button type="button" class="btn btn-default">Comment</button>
+					</div>
+					<div class="col-sm-1">
+						<button type="button" class="btn btn-default">Edit</button>
+					</div>
+				<div class="col-sm-9">
+				</div>
+				</div>
+			</div>
+			<div class="well well-lg post" >
+				<div class="row">
+				<div class="col-sm-3">
+				</div>
+				<div class="col-sm-6">
+					<img src="img/event5.jpeg" alt="Post Pic" id="postPic">
+					<p>Lesson 1: How to be a BRO</p>
+				</div>
+				<div class="col-sm-3">
+				</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-2">
+						<button type="button" class="btn btn-default">Comment</button>
+					</div>
+					<div class="col-sm-1">
+						<button type="button" class="btn btn-default">Edit</button>
+					</div>
+				<div class="col-sm-9">
+				</div>
+				</div>
+			</div>
+			<div class="well well-lg post" >
+				<div class="row">
+				<div class="col-sm-3">
+				</div>
+				<div class="col-sm-6">
+					<img src="img/event6.jpeg" alt="Post Pic" id="postPic">
+					<p>If super hero have wings</p>
+				</div>
+				<div class="col-sm-3">
+				</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-2">
+						<button type="button" class="btn btn-default">Comment</button>
+					</div>
+					<div class="col-sm-1">
+						<button type="button" class="btn btn-default">Edit</button>
+					</div>
+				<div class="col-sm-9">
+				</div>
+				</div>
+			</div>
+			<div class="well well-lg post" >
+				<div class="row">
+				<div class="col-sm-3">
+				</div>
+				<div class="col-sm-6">
+					<p>Sometimes I wonder: why do these two-leg walkers keep giving us food so willingly?</p>
+				</div>
+				<div class="col-sm-3">
+				</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-2">
+						<button type="button" class="btn btn-default">Comment</button>
+					</div>
+					<div class="col-sm-1">
+						<button type="button" class="btn btn-default">Edit</button>
+					</div>
+				<div class="col-sm-9">
+				</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-1">
+		</div>
+	</div>
+	</div>
+</body>
+</html>
