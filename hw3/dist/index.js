@@ -3,7 +3,9 @@ window.onload = function() {
 	var date = today.getDate();
 	var month = today.getMonth()+1;
 	var thisYear = today.getFullYear();
+	// The user has to be less than 120 years old
 	var minYear = thisYear - 120;
+	// The user has to be at least 18 years old
 	var maxYear = thisYear - 18;
 	if(date<10){
 	     date='0'+date
@@ -13,6 +15,7 @@ window.onload = function() {
 	 } 
 	maxDate = maxYear + '-' + month + '-' + date;
 	minDate = minYear + '-' + 01 + '-' + 01;
+	// Set the maximum and minimum date of the birthday
 	document.getElementsByName('birthday')[0].setAttribute("max", maxDate);
 	document.getElementsByName('birthday')[0].setAttribute("min", minDate);		
 }
@@ -30,27 +33,6 @@ function ValidateLogIn() {
 }
 
 function ValidateSignUp() {
-	if (checkAge() && checkPassword()) {
-		return true;
-	} else {
-		return false;
-	}
-}
-
-function checkAge() {
-	var dateOfBirth=new Date(document.getElementsByName("birthday")[0].value);
-	var ageDiffMs = Date.now() - dateOfBirth.getTime();
-	var ageDate = new Date(ageDiffMs);
-	var age = Math.abs(ageDate.getUTCFullYear() - 1970);
-	if (age < 18) {
- 		window.alert("User must be 18 years of age or older");
-		return false;
-	} else {
-		return true;
-	}
-}
-
-function checkPassword() {
 	var password = document.getElementsByName('password')[0].value;
 	var passwordConfirmation = document.getElementsByName('passwordConfirmation')[0].value;
 	if (password != passwordConfirmation) {

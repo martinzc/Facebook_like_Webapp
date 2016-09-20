@@ -8,7 +8,10 @@
 	<meta name="description" content="Main Page">
 	<meta name="author" content="Chao (Martin) Zhou">
 	<script src="./main.js"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" 
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+		crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="./styles.css">
 </head>
 
@@ -27,7 +30,8 @@
 			<div class="col-sm-3">
 				<form class="navbar-form">
 					<div class="input-group">
-						<input type="text" class="form-control" id="searchBar" placeholder="Search">
+						<input type="text" class="form-control" id="searchBar" 
+							placeholder="Search">
 					</div>
 				</form>
 			</div>
@@ -42,48 +46,60 @@
 			<img src="img/dog1.jpeg" alt="Profile Pic" id="profilePic">
 			<p class="text-primary">YellowDontMellow</p>
 			<small class="text-info" id="status">Status: <br>Hungry for bones</small>
-			<textarea class="form-control" rows="2" id="updateStatus" placeholder="Update your status"></textarea>
-			<button type="button" class="btn btn-primary center-block" id="updateStatusBotton" onclick="updateStatus()">Update</button>
+			<textarea class="form-control" rows="2" id="updateStatus" 
+				placeholder="Update your status"></textarea>
+			<button type="button" class="btn btn-primary center-block" 
+				id="updateStatusBotton" onclick="updateStatus()">Update</button>
 			<br>
 			<p class="text-info" id="status">Followed Users</p>
 			<input type="text" class="form-control" id="followUser">
-			<button type="button" class="btn btn-primary center-block">Follow User</button><br>
+			<button type="button" class="btn btn-primary center-block">Follow User
+				</button><br>
 			<div class="well well-sm" id="followedUser">
 				<img src="img/dog2.jpeg" alt="Profile Pic" id="profilePic">
 				<p class="text-primary">CoolDog</p>
-				<small class="text-info" id="status">Status: <br>Be like CoolDog</small><br><br>
-				<button type="button" class="btn btn-primary center-block" id="unfollow">Unfollow</button>
+				<small class="text-info" id="status">Status: <br>Be like CoolDog
+					</small><br><br>
+				<button type="button" class="btn btn-primary center-block" 
+					id="unfollow">Unfollow</button>
 			</div>
 			<div class="well well-sm">
 				<img src="img/dog3.jpeg" alt="Profile Pic" id="profilePic">
 				<p class="text-primary">Daug</p>
-				<small class="text-info" id="status">Status: <br>But that's none of your business</small><br><br>
-				<button type="button" class="btn btn-primary center-block" id="unfollow">Unfollow</button>
+				<small class="text-info" id="status">Status: <br>
+					But that's none of your business</small><br><br>
+				<button type="button" class="btn btn-primary center-block" 
+					id="unfollow">Unfollow</button>
 			</div>
 			<div class="well well-sm">
 				<img src="img/dog4.jpeg" alt="Profile Pic" id="profilePic">
 				<p class="text-primary">MemeLord</p>
-				<small class="text-info" id="status">Status: <br>Darkest Me Me</small><br><br>
-				<button type="button" class="btn btn-primary center-block" id="unfollow">Unfollow</button>
+				<small class="text-info" id="status">Status: <br>Darkest Me Me
+					</small><br><br>
+				<button type="button" class="btn btn-primary center-block" 
+					id="unfollow">Unfollow</button>
 			</div>
 		</div>
 		<div class="col-sm-8">
 			<div class="well well-lg">
-				<textarea class="form-control" rows="3" id="newPost" placeholder="Make a new post"></textarea>
+				<textarea class="form-control" rows="3" id="newPost" 
+					placeholder="Make a new post"></textarea>
 				<div class="row">
 				<div class="col-sm-1">
 					<button type="button" class="btn btn-primary">Post</button>
 				</div>
 				<div class="col-sm-1">
-					<button type="button" class="btn btn-danger" onclick="clearNewPost()">Cancel</button>
+					<button type="button" class="btn btn-danger" 
+						onclick="clearNewPost()">Cancel</button>
 				</div>
 				<div class="col-sm-4">
 				</div>
 				<div class="col-sm-4">
-					<input type="file" class="form-control">
+					<input type="file"  accept="image/*" class="form-control">
 				</div>
 				<div class="col-sm-1">
-					<button type="button" class="btn btn-default center-block">Upload Pic</button>
+					<button type="button" class="btn btn-default center-block">
+						Upload Pic</button>
 				</div>
 				<div class="col-sm-1">
 				</div>
@@ -247,7 +263,8 @@
 				<div class="col-sm-3">
 				</div>
 				<div class="col-sm-6">
-					<p>Sometimes I wonder: why do these two-leg walkers keep giving us food so willingly?</p>
+					<p>Sometimes I wonder: why do these two-leg walkers 
+						keep giving us food so willingly?</p>
 				</div>
 				<div class="col-sm-3">
 				</div>
