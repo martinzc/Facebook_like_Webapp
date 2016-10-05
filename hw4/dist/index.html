@@ -23,15 +23,19 @@
 		<div class="col-sm-9">
 			<canvas id="snakeCanvas"></canvas>
 		</div>
-		<div class="col-sm-3 arrowKeys">
-			<div class="row">
+		<div class="col-sm-3">
+			<div class="row explanation">	
+				<p class=".text-primary">Use arrow key or control pad on the right<br>
+				to control the direction of the snake</p>
+			</div>
+			<div class="row  arrowKeys">
 				<div class="col-sm-2"></div>
 				<div class="col-sm-4">
 					<button class="btn btn-success btn-block" id="up">Up</button>
 				</div>
 				<div class="col-sm-6"></div>
 			</div>
-			<div class="row">
+			<div class="row  arrowKeys">
 				<div class="col-sm-4">
 					<button class="btn btn-success btn-block" id="left">Left</button>
 				</div>
@@ -40,7 +44,7 @@
 				</div>
 				<div class="col-sm-4"></div>
 			</div>
-			<div class="row">
+			<div class="row  arrowKeys">
 				<div class="col-sm-2"></div>
 				<div class="col-sm-4">
 					<button class="btn btn-success btn-block" id="down">Down</button>
@@ -49,20 +53,5 @@
 			</div>
 		</div>
 	<div>
-	<div class="row">
-				<div class="col-sm-4">
-				</div>
-				<div class="col-sm-4 rule">
-					<h1>Game Rule</h1>
-					<p class=".text-primary">Collect apple (red circle) to earn one point. 
-					Touch the bomb (black square) and game will be over. Touch the body of
-					the snake will also cause the game to be over.</p>
-					<p class=".text-primary">The difficulty of this game scales over time. 
-					As you collect more apples, the snake grows longer. Every ten seconds
-					the speed of the snake increases by some amount. Every ten seconds one
-					more bomb spawns on the map</p>
-				</div>
-				<div class="col-sm-4"></div>
-	</div>
 </body>
 </html>

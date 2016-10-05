@@ -5,6 +5,19 @@ window.onload = function() {
 	const canvas = document.getElementById('snakeCanvas');
 	canvas.width = canvas.clientWidth;
 	canvas.height = canvas.clientHeight;
+	// Create the intro page
+	const context = canvas.getContext("2d");
+	const width = canvas.width;
+	const height = canvas.height;
+	context.font="30px Verdana";
+	context.fillText("Welcome to Snake!", width / 2 - 150, height / 2 - 100);
+	context.font="20px Verdana";
+	context.fillText("Game Rules", 80, height / 2 - 30);
+	context.font="15px Verdana";
+	context.fillText("Collect apple (red circle) and avoid the bomb (black square).", 80, height / 2);
+	context.fillText("As you collect more apples, the snake grows longer.", 80, height / 2 + 30);
+	context.fillText("Every ten seconds the speed of the snake increases by some amount.", 80, height / 2 + 60);
+	context.fillText("Every ten seconds one more bomb spawns on the map.", 80, height / 2 + 100);
 	// Add event listener to the button
 	document.getElementById("start").onclick = function() {
 		createApp(canvas);
