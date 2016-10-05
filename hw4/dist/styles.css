@@ -1,0 +1,22 @@
+.wrapper {
+   text-align: center;
+   margin-top: 10px;
+}
+
+.arrowKeys {
+   margin-top: 200px;
+}
+
+canvas {
+	width: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-top: 20px;
+	height: 500px;
+	border:1px solid #000000;
+	float:left;
+}
+
+.rule h1{
+	text-align: center
+}
