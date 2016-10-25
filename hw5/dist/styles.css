@@ -1,0 +1,84 @@
+.jumbotron {
+	background-color: #3b5998;
+	height: 110px;
+}
+
+.jumbotron h2{
+	padding-left: 5%;
+	font-family: Lucida;
+	color: white;
+}
+
+.navbar-default {
+	background-color: #3b5998;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color:white;
+}
+
+.navbar-default .navbar-brand {
+    color:white;
+}
+
+nav#searchbar {
+	display:inline;
+}
+
+div#signUpButton {
+	padding-left: 40%;
+}
+
+div#pageContent {
+	margin-top: 70px;
+}
+
+
+div#profileForm {
+	margin-top: 70px;
+}
+
+img#profilePic {
+	width:100%;
+}
+
+img.followingImage {
+	width:50%;
+}
+
+img#postPic {
+	width:100%;
+}
+
+.post p {
+	text-align: center;
+	margin-top:5px;
+}
+
+.text-primary {
+	margin-top: 10px;
+	text-align: center;
+}
+
+button#logInButton {
+	margin-top: 5%;
+	margin-left: 30%;
+}
+
+textarea#updateStatus {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 80%;
+	resize: none;
+}
+
+textarea#newPost {
+	margin-bottom: 10px;
+	font-size: 80%;
+	resize: none;
+}
+
+input#followUser {
+	margin-bottom: 5px;
+}
+
