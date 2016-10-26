@@ -7,10 +7,11 @@ import Avatar from './avatar'
 const Profile = () => {
     return (
         <div>
+        		<div><br></br><br></br><br></br></div>
+        		<div className="col-sm-1"></div>
             <Avatar/>
-            <div className="col-xs-5 col-md-5">
-                <ProfileForm/>
-            </div>
+        		<div className="col-sm-2"></div>
+            <ProfileForm/>
         </div>
     )
 }

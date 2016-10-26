@@ -6,18 +6,18 @@ import Register from './register'
 
 let ErrorMessage = ({error, success}) => (
     <div className="row">
-        { error.length == 0 ? '' :
+        { error == '' ? '' :
             <div className="alert alert-danger">
                 <div className="col-sm-1"></div>
-                <div className="col-sm-10" id="errorMessage">{ error }</div>
+                <div className="col-sm-10">{ error }</div>
                 <div className="col-sm-1"></div>
                 <div className="row">&nbsp;</div>
             </div>
         }
-        { success.length == 0 ? '' :
+        { success == '' ? '' :
             <div className="alert alert-success">
                 <div className="col-sm-1"></div>
-                <div className="col-sm-10" id="successMessage">{ success }</div>
+                <div className="col-sm-10">{ success }</div>
                 <div className="col-sm-1"></div>
                 <div className="row">&nbsp;</div>
             </div>
@@ -31,7 +31,6 @@ ErrorMessage.propTypes = {
 ErrorMessage = connect((state) => {
     return { error: state.error.error, success: state.error.success }
 })(ErrorMessage)
-
 
 const Landing = () => (
     <div>

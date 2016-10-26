@@ -18,7 +18,7 @@ Follower.propTypes = {
     headline: PropTypes.string,
 }
 
-const Following = ({error, followers}) => {
+const Following = ({followers}) => {
     return (
         <div>
         { Object.keys(followers).sort().map((f) => followers[f]).map((follower) =>
@@ -30,14 +30,12 @@ const Following = ({error, followers}) => {
 }
 
 Following.propTypes = {
-    error: PropTypes.string.isRequired,
     followers: PropTypes.object.isRequired
 }
 
 export default connect(
     (state) => {
         return {
-            error: state.error.error,
             followers: state.followers.followers
         }
     }

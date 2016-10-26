@@ -1,4 +1,4 @@
-import { resource, updateError, updateSuccess, navToProfile, navToMain, navToLanding } from '../../actions'
+import { resource, updateError, updateSuccess, navToProfile, navToMain, navToLanding, clearInfo } from '../../actions'
 import {fetchProfile} from '../profile/profileActions'
 import {fetchFollowers} from '../main/followingActions'
 import {fetchArticles} from '../article/articleActions'
@@ -20,7 +20,6 @@ export function initialVisit() {
 
 const updateInfo = (username, password) => {return { type:"LOGIN", username, password}}
 
-const clearInfo = () => {return { type:"CLEARINFO", username, password}}
 
 export function login(username, password) {
     return (dispatch) => {
@@ -29,7 +28,7 @@ export function login(username, password) {
             dispatch(updateInfo(username, password))
             dispatch(initialVisit())
         }).catch((err) => {
-            dispatch(updateError(`There was an error logging in as ${username}`))
+            dispatch(updateError(`There was an error logging in as \'${username}\'`))
         })
     }
 }

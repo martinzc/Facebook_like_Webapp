@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { register } from './authActions'
+import { updateError, updateSuccess} from '../../actions'
+// import { register } from './authActions'
 
 const Register = ({dispatch}) => {
 
@@ -13,7 +14,7 @@ const Register = ({dispatch}) => {
                 onSubmit={(e) => {
                 e.preventDefault()
                 if (password.value != passwordConfirmation.value) {
-                    window.alert('Please match the two passwords')
+                    dispatch(updateError('Please match the two passwords'));
                 } else {
                     const payload = {
                         username:username.value,
@@ -25,7 +26,7 @@ const Register = ({dispatch}) => {
                         password:password.value,
                         passwordConfirmation:passwordConfirmation.value
                     }
-                    dispatch(register(payload))
+                    // dispatch(register(payload))
                 }
             }}>
             <input type="hidden" name="timeStamp"></input>

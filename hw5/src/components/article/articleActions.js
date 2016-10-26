@@ -4,9 +4,9 @@ export function fetchArticles() {
     return (dispatch, getState) => {
         resource('GET', 'articles')
         .then((response) => {
-            const articles = response.articles.reduce((o,v) => {
-                o[v._id] = v
-                return o
+            const articles = response.articles.reduce((article, author) => {
+                article[author._id] = author
+                return article
             }, {})
             dispatch({ type: 'UPDATE_ARTICLES', articles})
             const avatars = getState().articles.avatars
@@ -30,9 +30,3 @@ export function fetchArticles() {
 export function searchKeyword(keyword) {
     return { type: 'SEARCH_ARTICLE', keyword }
 }
-
-
-
-/** WEBPACK FOOTER **
- ** ./src/components/article/articleActions.js
- **/

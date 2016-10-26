@@ -9,8 +9,8 @@ const ArticlesView = ({username, articles, dispatch}) => {
   let keyword = ''
   return (
     <div className="col-sm-8" >
-      <div className="well well-lg">
-        <div className="row">
+      <div className="row">
+        <div className="well well-lg">
           <input className="form-control" type="text" placeholder="Enter your search here"
             ref={(node) => keyword = node }
             onChange={() => { dispatch(searchKeyword(keyword.value)) }}/>
@@ -45,8 +45,8 @@ export default connect(
     let articles = Object.keys(state.articles.articles).map((id) => state.articles.articles[id])
     if (keyword && keyword.length > 0) {
       articles = articles.filter((a) => {
-        return a.text.toLowerCase().indexOf(keyword.toLowerCase()) >= 0 ||
-               a.author.toLowerCase().indexOf(keyword.toLowerCase()) >= 0
+        return a.text.toLowerCase().search(keyword.toLowerCase()) >= 0 ||
+               a.author.toLowerCase().search(keyword.toLowerCase()) >= 0
       })
     }
     articles = articles.map((a) => {
@@ -60,5 +60,3 @@ export default connect(
     }
   }
 )(ArticlesView)
-
-export { ArticlesView as PureArticlesView }

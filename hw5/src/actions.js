@@ -8,6 +8,7 @@ export function navToMain() { return { type: 'NAV_MAIN' }}
 export function navToLanding() { return { type: 'NAV_LANDING' }}
 export function updateError(error) { return { type: 'ERROR', error }}
 export function updateSuccess(success) { return { type: 'SUCCESS', success }}
+export function clearInfo() {return {type: 'CLEAR_INFO'}}
 
 export const resource = (method, endpoint, payload) => {
   const options =  {
