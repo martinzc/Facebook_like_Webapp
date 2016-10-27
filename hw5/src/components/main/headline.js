@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { updateHeadline } from '../profile/profileActions'
+import { resource } from '../../actions'
 
 const Headline = ({ username, avatar, headline, dispatch}) => {
     let newHeadline
@@ -13,8 +14,9 @@ const Headline = ({ username, avatar, headline, dispatch}) => {
                 placeholder="Update your status" ref={ (node) => { newHeadline = node }}></textarea>
             <button type="button" className="btn btn-primary center-block" 
                 id="updateStatusBotton" onClick={() => {
-                            dispatch(updateHeadline(newHeadline.value))
-                            newHeadline.value = ''
+                            resource('PUT', 'headline', {headline: newHeadline.value}).then((response) => {
+                                dispatch(updateHeadline(newHeadline.value))
+                            })
                         }}>Update</button>
         </div>
     )

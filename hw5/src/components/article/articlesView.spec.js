@@ -7,9 +7,6 @@ import fetch, { mock } from 'mock-fetch'
 import { shallow } from 'enzyme'
 import {ArticlesView, filterArticle} from './articlesView'
 
-
- 
-
 describe('Test action functions', () => {
 
     it('should render articles', (done)=>{
