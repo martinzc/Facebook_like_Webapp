@@ -31269,11 +31269,13 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var ArticlesView = exports.ArticlesView = function ArticlesView(_ref) {
-	  var username = _ref.username;
 	  var articles = _ref.articles;
+	  var avatars = _ref.avatars;
+	  var keyword = _ref.keyword;
+	  var username = _ref.username;
 	  var dispatch = _ref.dispatch;
 	
-	  var keyword = '';
+	  var lockeyword = '';
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'col-sm-8' },
@@ -31285,10 +31287,10 @@
 	        { className: 'well well-lg' },
 	        _react2.default.createElement('input', { className: 'form-control', type: 'text', placeholder: 'Enter your search here',
 	          ref: function ref(node) {
-	            return keyword = node;
+	            return lockeyword = node;
 	          },
 	          onChange: function onChange() {
-	            dispatch((0, _articleActions.searchKeyword)(keyword.value));
+	            dispatch((0, _articleActions.searchKeyword)(lockeyword.value));
 	          } })
 	      )
 	    ),
@@ -31304,21 +31306,20 @@
 	  );
 	};
 	
-	ArticlesView.propTypes = {
-	  username: _react.PropTypes.string.isRequired,
-	  articles: _react.PropTypes.arrayOf(_react.PropTypes.shape(_extends({}, _article2.default.propTypes)).isRequired).isRequired
+	ArticlesView.PropTypes = {
+	  articles: _react.PropTypes.object,
+	  avatars: _react.PropTypes.object,
+	  keyword: _react.PropTypes.string
 	};
 	
 	function filterArticle(state) {
 	  var avatars = state.articles.avatars;
 	  var keyword = state.articles.searchKeyword;
-	  console.log(state);
 	  var articles = Object.keys(state.articles.articles).map(function (id) {
 	    return state.articles.articles[id];
 	  });
 	  if (keyword && keyword.length > 0) {
 	    articles = articles.filter(function (a) {
-	      console.log("filter keywrod");
 	      return a.text.toLowerCase().search(keyword.toLowerCase()) >= 0 || a.author.toLowerCase().search(keyword.toLowerCase()) >= 0;
 	    });
 	  }
@@ -31334,7 +31335,9 @@
 	  var articles = filterArticle(state);
 	  return {
 	    username: state.profile.username,
-	    articles: articles
+	    articles: articles,
+	    avatars: state.articles.avatars,
+	    keyword: state.articles.keyword
 	  };
 	})(ArticlesView);
 

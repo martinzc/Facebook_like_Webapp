@@ -5,15 +5,15 @@ import { connect } from 'react-redux'
 import Article from './article'
 import { searchKeyword } from './articleActions'
 
-export const ArticlesView = ({username, articles, dispatch}) => {  
-  let keyword = ''
+export const ArticlesView = ({articles, avatars, keyword, username, dispatch}) => {  
+  let lockeyword = ''
   return (
     <div className="col-sm-8" >
       <div className="row">
         <div className="well well-lg">
           <input className="form-control" type="text" placeholder="Enter your search here"
-            ref={(node) => keyword = node }
-            onChange={() => { dispatch(searchKeyword(keyword.value)) }}/>
+            ref={(node) => lockeyword = node }
+            onChange={() => { dispatch(searchKeyword(lockeyword.value)) }}/>
         </div>
       </div>
       { articles.sort((a,b) => {
@@ -31,21 +31,18 @@ export const ArticlesView = ({username, articles, dispatch}) => {
   )
 }
 
-ArticlesView.propTypes = {
-  username: PropTypes.string.isRequired,
-  articles: PropTypes.arrayOf(PropTypes.shape({
-    ...Article.propTypes
-  }).isRequired).isRequired
+ArticlesView.PropTypes = {
+  articles: PropTypes.object,
+  avatars: PropTypes.object,
+  keyword: PropTypes.string
 }
 
 export function filterArticle(state) {
   const avatars = state.articles.avatars
   const keyword = state.articles.searchKeyword
-  console.log(state)
   let articles = Object.keys(state.articles.articles).map((id) => state.articles.articles[id])
   if (keyword && keyword.length > 0) {
     articles = articles.filter((a) => {
-      console.log("filter keywrod")
       return a.text.toLowerCase().search(keyword.toLowerCase()) >= 0 ||
              a.author.toLowerCase().search(keyword.toLowerCase()) >= 0
     })
@@ -64,7 +61,9 @@ export default connect(
     let articles = filterArticle(state)
     return {
       username: state.profile.username,
-      articles
+      articles: articles,
+      avatars: state.articles.avatars,
+      keyword: state.articles.keyword
     }
   }
 )(ArticlesView)

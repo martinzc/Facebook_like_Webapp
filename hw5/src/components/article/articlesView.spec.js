@@ -13,9 +13,10 @@ import {ArticlesView, filterArticle} from './articlesView'
 describe('Test action functions', () => {
 
     it('should render articles', (done)=>{
-        let articles = []
+        let articles = [{_id: 0, username: 'test', author: 'testAuth', date: '000-000-000', text: 'testText',
+            img: 'http://test.png', avatar: 'http://avatar.png', comments: [{}]}]
         let node = shallow(<ArticlesView username='' articles={articles}/>)
-        expect(node.children().length).to.equal(4)
+        expect(node.children().length).to.equal(2)
         done()
     })
 
@@ -25,8 +26,10 @@ describe('Test action functions', () => {
     })
 
     it('should filter displayed articles by the search keyword', (done)=>{
-    		// let state = {navigate: {location: 'main'}, profile: {Object}, error: Object, followers: Object, articles: {articles: {}, avatars: {}, searchKeyword: ""}}
-      //   let output = filterArticle(state)
+    	let state = {navigate: {location: 'main'}, articles: {articles: {}, avatars: {}, searchKeyword: ""}}
+		let output = filterArticle(state)
+		expect(output).to.equal([])
+		done()
     })
  
 })
