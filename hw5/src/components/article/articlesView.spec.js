@@ -28,7 +28,7 @@ describe('Test action functions', () => {
     it('should filter displayed articles by the search keyword', (done)=>{
     	let state = {navigate: {location: 'main'}, articles: {articles: {}, avatars: {}, searchKeyword: ""}}
 		let output = filterArticle(state)
-		expect(output).to.equal([])
+		expect(output.length).to.equal(0)
 		done()
     })
  
