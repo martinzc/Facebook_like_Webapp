@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 
-function navigate(state = { location:'landing' }, action) {
+export function navigate(state = { location:'landing' }, action) {
     switch (action.type) {
         case 'NAV_PROFILE':
             return { ...state, location: 'profile'}
@@ -13,7 +13,7 @@ function navigate(state = { location:'landing' }, action) {
     }
 }
 
-function profile(state = { username:'', password:'', headline: '', avatar: '', zipcode: '', email: '', birthday:''}, action) {
+export function profile(state = { username:'', password:'', headline: '', avatar: '', zipcode: '', email: '', birthday:''}, action) {
     switch (action.type) {
         case 'LOGIN':
             return { ...state, username: action.username, password: action.password }
@@ -34,7 +34,7 @@ function profile(state = { username:'', password:'', headline: '', avatar: '', z
     }
 }
 
-function followers(state = { followers: {} }, action) {
+export function followers(state = { followers: {} }, action) {
     switch(action.type) {
         case 'UPDATE_FOLLOWERS':
             return { ...state, followers: action.followers }
@@ -45,7 +45,7 @@ function followers(state = { followers: {} }, action) {
     }
 }
 
-function articles(state = { articles: {}, searchKeyword: '', avatars: {} }, action) {
+export function articles(state = { articles: {}, searchKeyword: '', avatars: {} }, action) {
     switch(action.type) {
         case 'UPDATE_ARTICLES':
             return { ...state, articles: action.articles }
@@ -58,7 +58,7 @@ function articles(state = { articles: {}, searchKeyword: '', avatars: {} }, acti
     }
 }
 
-function error(state = { error:'', success:'' }, action)  {
+export function error(state = { error:'', success:'' }, action)  {
     switch (action.type) {
         case 'SUCCESS':
             return { ...state, success: action.success, error: ''  }

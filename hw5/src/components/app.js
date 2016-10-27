@@ -11,27 +11,16 @@ const App = ({location}) => {
     // Switch view of the page according to location
     let view, nav
 
-    switch(location) {
-        case 'main': 
-            view = <Main/>; 
-            break;
-        case 'profile': 
-            view = <Profile/>; 
-            break;
-        case 'landing': 
-            view = <Landing/>; 
-            break;
-        default: 
-            view = <Landing/>; 
-            break;
-    }
-
     if (location == 'landing') {
         nav = ' '
-    } else {
+        view = <Landing/>; 
+    } else if (location == 'main') {
         nav = <Nav/>
+        view = <Main/>; 
+    } else if (location == 'profile') {
+        nav = <Nav/>
+        view = <Profile/>; 
     }
-
 
     return (
         <div>

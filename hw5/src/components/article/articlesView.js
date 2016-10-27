@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import Article from './article'
 import { searchKeyword } from './articleActions'
 
-const ArticlesView = ({username, articles, dispatch}) => {  
+export const ArticlesView = ({username, articles, dispatch}) => {  
   let keyword = ''
   return (
     <div className="col-sm-8" >
@@ -38,22 +38,30 @@ ArticlesView.propTypes = {
   }).isRequired).isRequired
 }
 
+export function filterArticle(state) {
+  const avatars = state.articles.avatars
+  const keyword = state.articles.searchKeyword
+  console.log(state)
+  let articles = Object.keys(state.articles.articles).map((id) => state.articles.articles[id])
+  if (keyword && keyword.length > 0) {
+    articles = articles.filter((a) => {
+      console.log("filter keywrod")
+      return a.text.toLowerCase().search(keyword.toLowerCase()) >= 0 ||
+             a.author.toLowerCase().search(keyword.toLowerCase()) >= 0
+    })
+  }
+  articles = articles.map((a) => {
+    return {...a, avatar: avatars[a.author], comments: a.comments.map((c) => {
+      return { ...c, avatar: avatars[c.author] }
+    })}
+  })
+  return articles
+
+}
+
 export default connect(
   (state) => {
-    const avatars = state.articles.avatars
-    const keyword = state.articles.searchKeyword
-    let articles = Object.keys(state.articles.articles).map((id) => state.articles.articles[id])
-    if (keyword && keyword.length > 0) {
-      articles = articles.filter((a) => {
-        return a.text.toLowerCase().search(keyword.toLowerCase()) >= 0 ||
-               a.author.toLowerCase().search(keyword.toLowerCase()) >= 0
-      })
-    }
-    articles = articles.map((a) => {
-      return {...a, avatar: avatars[a.author], comments: a.comments.map((c) => {
-        return { ...c, avatar: avatars[c.author] }
-      })}
-    })
+    let articles = filterArticle(state)
     return {
       username: state.profile.username,
       articles

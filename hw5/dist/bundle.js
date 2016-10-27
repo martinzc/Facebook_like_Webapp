@@ -23947,6 +23947,12 @@
 	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
+	exports.navigate = navigate;
+	exports.profile = profile;
+	exports.followers = followers;
+	exports.articles = articles;
+	exports.error = error;
+	
 	var _redux = __webpack_require__(179);
 	
 	function navigate() {
@@ -24081,25 +24087,15 @@
 	    var view = void 0,
 	        nav = void 0;
 	
-	    switch (location) {
-	        case 'main':
-	            view = _react2.default.createElement(_main2.default, null);
-	            break;
-	        case 'profile':
-	            view = _react2.default.createElement(_profile2.default, null);
-	            break;
-	        case 'landing':
-	            view = _react2.default.createElement(_landing2.default, null);
-	            break;
-	        default:
-	            view = _react2.default.createElement(_landing2.default, null);
-	            break;
-	    }
-	
 	    if (location == 'landing') {
 	        nav = ' ';
-	    } else {
+	        view = _react2.default.createElement(_landing2.default, null);
+	    } else if (location == 'main') {
 	        nav = _react2.default.createElement(_nav2.default, null);
+	        view = _react2.default.createElement(_main2.default, null);
+	    } else if (location == 'profile') {
+	        nav = _react2.default.createElement(_nav2.default, null);
+	        view = _react2.default.createElement(_profile2.default, null);
 	    }
 	
 	    return _react2.default.createElement(
@@ -30572,6 +30568,7 @@
 	});
 	exports.updateDOB = exports.updateEmail = exports.updateZipcode = exports.updateAvatar = exports.updateHeadline = undefined;
 	exports.fetchProfile = fetchProfile;
+	exports.fetchField = fetchField;
 	
 	var _actions = __webpack_require__(208);
 	
@@ -31251,8 +31248,11 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.ArticlesView = undefined;
 	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	exports.filterArticle = filterArticle;
 	
 	var _react = __webpack_require__(1);
 	
@@ -31268,7 +31268,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var ArticlesView = function ArticlesView(_ref) {
+	var ArticlesView = exports.ArticlesView = function ArticlesView(_ref) {
 	  var username = _ref.username;
 	  var articles = _ref.articles;
 	  var dispatch = _ref.dispatch;
@@ -31309,14 +31309,16 @@
 	  articles: _react.PropTypes.arrayOf(_react.PropTypes.shape(_extends({}, _article2.default.propTypes)).isRequired).isRequired
 	};
 	
-	exports.default = (0, _reactRedux.connect)(function (state) {
+	function filterArticle(state) {
 	  var avatars = state.articles.avatars;
 	  var keyword = state.articles.searchKeyword;
+	  console.log(state);
 	  var articles = Object.keys(state.articles.articles).map(function (id) {
 	    return state.articles.articles[id];
 	  });
 	  if (keyword && keyword.length > 0) {
 	    articles = articles.filter(function (a) {
+	      console.log("filter keywrod");
 	      return a.text.toLowerCase().search(keyword.toLowerCase()) >= 0 || a.author.toLowerCase().search(keyword.toLowerCase()) >= 0;
 	    });
 	  }
@@ -31325,6 +31327,11 @@
 	        return _extends({}, c, { avatar: avatars[c.author] });
 	      }) });
 	  });
+	  return articles;
+	}
+	
+	exports.default = (0, _reactRedux.connect)(function (state) {
+	  var articles = filterArticle(state);
 	  return {
 	    username: state.profile.username,
 	    articles: articles
@@ -46068,22 +46075,30 @@
 	
 	var _profileActions = __webpack_require__(213);
 	
+	var _moment = __webpack_require__(223);
+	
+	var _moment2 = _interopRequireDefault(_moment);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var ProfileForm = function ProfileForm(_ref) {
 	    var oldEmail = _ref.oldEmail;
 	    var oldZipcode = _ref.oldZipcode;
 	    var oldPw = _ref.oldPw;
+	    var oldDob = _ref.oldDob;
 	
 	
 	    var email = void 0,
 	        zipCode = void 0,
 	        pw = void 0,
-	        pwConf = void 0;
+	        pwConf = void 0,
+	        birthday = void 0;
+	
+	    var date = (0, _moment2.default)(new Date(oldDob));
 	
 	    return _react2.default.createElement(
 	        'div',
-	        { className: 'col-sm-5' },
+	        { className: 'col-sm-2' },
 	        _react2.default.createElement(
 	            'p',
 	            null,
@@ -46122,6 +46137,23 @@
 	        _react2.default.createElement(
 	            'p',
 	            null,
+	            'Date Of Birth:',
+	            _react2.default.createElement('br', null),
+	            _react2.default.createElement(
+	                'small',
+	                null,
+	                'Current DOB: ',
+	                date.format('YYYY-MM-DD')
+	            ),
+	            _react2.default.createElement('br', null),
+	            _react2.default.createElement('input', { type: 'date', className: 'form-control',
+	                ref: function ref(node) {
+	                    return birthday = node;
+	                } })
+	        ),
+	        _react2.default.createElement(
+	            'p',
+	            null,
 	            'Password:',
 	            _react2.default.createElement('br', null),
 	            _react2.default.createElement('input', { type: 'password', id: 'password', name: 'inputVal',
@@ -46150,14 +46182,16 @@
 	ProfileForm.PropTypes = {
 	    oldEmail: _react.PropTypes.string,
 	    oldZipcode: _react.PropTypes.string,
-	    oldPw: _react.PropTypes.string
+	    oldPw: _react.PropTypes.string,
+	    oldDob: _react.PropTypes.string
 	};
 	
 	exports.default = (0, _reactRedux.connect)(function (state) {
 	    return {
 	        oldEmail: state.profile.email,
 	        oldZipcode: state.profile.zipcode,
-	        oldPw: state.profile.password
+	        oldPw: state.profile.password,
+	        oldDob: state.profile.dob
 	    };
 	})(ProfileForm);
 	exports.PureProfileForm = ProfileForm;

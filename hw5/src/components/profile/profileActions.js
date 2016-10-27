@@ -16,7 +16,7 @@ export const updateZipcode = (zipcode) => {return { type:"UPDATE_ZIPCODE", zipco
 export const updateEmail = (email) => {return { type:"UPDATE_EMAIL", email }}
 export const updateDOB = (dob) => {return { type:"UPDATE_DOB", dob }}
 
-function fetchField(field) {
+export function fetchField(field) {
     return (dispatch) => {
         resource('GET', field).then((response) => {
             switch(field) {

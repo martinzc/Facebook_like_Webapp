@@ -3,12 +3,16 @@ import { connect } from 'react-redux'
 
 import { updateProfile } from './profileActions'
 
-const ProfileForm = ({oldEmail, oldZipcode, oldPw}) => {
+import moment from 'moment'
 
-    let email, zipCode, pw, pwConf
+const ProfileForm = ({oldEmail, oldZipcode, oldPw, oldDob}) => {
+
+    let email, zipCode, pw, pwConf, birthday
+
+    const date = moment(new Date(oldDob))
 
     return (
-        <div className="col-sm-5">
+        <div className="col-sm-2">
             <p>Email Address: 
             <br></br>
             <small>Must be the format x@x.xx</small>
@@ -25,6 +29,12 @@ const ProfileForm = ({oldEmail, oldZipcode, oldPw}) => {
             <input type="text" id="zipCode" name="inputVal" pattern="\d{5}"
                 ref={ (node) => { zipCode = node }}
                 placeholder={oldZipcode}></input>
+            </p>
+            <p>Date Of Birth:<br></br>
+            <small>Current DOB: {date.format('YYYY-MM-DD')}</small>
+            <br></br>
+            <input type="date" className="form-control"
+                ref={(node) => birthday = node} ></input>
             </p>
             <p>Password: 
             <br></br>
@@ -45,7 +55,8 @@ const ProfileForm = ({oldEmail, oldZipcode, oldPw}) => {
 ProfileForm.PropTypes = {
     oldEmail: PropTypes.string,
     oldZipcode: PropTypes.string,
-    oldPw: PropTypes.string
+    oldPw: PropTypes.string,
+    oldDob: PropTypes.string
 }
 
 
@@ -54,7 +65,8 @@ export default connect(
         return {
             oldEmail: state.profile.email,
             oldZipcode: state.profile.zipcode,
-            oldPw: state.profile.password
+            oldPw: state.profile.password,
+            oldDob: state.profile.dob
         }
     }
 )(ProfileForm)
