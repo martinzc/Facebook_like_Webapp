@@ -1,5 +1,7 @@
 "use strict"
 
+// Stub
+
 const register = (req, res) => {
 	res.send({ result: "success", username:"test user"})
 }

@@ -36,7 +36,8 @@ class Comment extends Component {
                         ref={(node) => newCommentText = node }/>
                       <button type="button" className="btn btn-primary center-block" onClick={() => {  
                         if (newCommentText.value != '') {
-                          this.props.dispatch(updateArticle({text: newCommentText.value, commentId: this.props.commentId}, this.props.articleId))
+                          this.props.dispatch(updateArticle({text: newCommentText.value, commentId: 
+                            this.props.commentId}, this.props.articleId))
                           newCommentText.value = ''
                         }
                       }}>Edit Comment</button>

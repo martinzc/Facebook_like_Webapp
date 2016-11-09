@@ -11,7 +11,7 @@ export function fetchFollowers(method, name) {
         if (method == 'PUT' && getState().followers.followers[name]) {
             return dispatch(updateError(`Already following ${name}`))
         }
-
+        // Get all the followers and reduce and join them
         resource(method ? method : 'GET', 'following' + (name ? '/' + name : ''))
         .then((response) => {
 

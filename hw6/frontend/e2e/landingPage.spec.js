@@ -4,7 +4,6 @@ import common from './common'
 
 describe('Test Landing Page', () => {
 
-    // const preamble = 'you are logged in as'
 
     before('launch page', (done) => {
         go().then(done)

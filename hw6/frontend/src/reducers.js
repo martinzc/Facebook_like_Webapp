@@ -13,7 +13,8 @@ export function navigate(state = { location:'landing' }, action) {
     }
 }
 
-export function profile(state = { username:'', password:'', headline: '', avatar: '', zipcode: '', email: '', birthday:''}, action) {
+export function profile(state = { username:'', password:'', headline: '', avatar: '', 
+    zipcode: '', email: '', birthday:''}, action) {
     switch (action.type) {
         case 'LOGIN':
             return { ...state, username: action.username, password: action.password }
@@ -28,7 +29,8 @@ export function profile(state = { username:'', password:'', headline: '', avatar
         case 'UPDATE_DOB':
             return { ...state, dob: action.dob}
         case 'CLEARINFO':
-            return { ...state, username:'', password:'', headline: '', avatar: '', zipcode: '', email: '', birthday: ''}
+            return { ...state, username:'', password:'', headline: '', avatar: '', 
+            zipcode: '', email: '', birthday: ''}
         default:
             return state
     }

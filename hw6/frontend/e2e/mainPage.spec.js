@@ -4,7 +4,6 @@ import common from './common'
 
 describe('Test Main Page', () => {
 
-    // const preamble = 'you are logged in as'
 
     before('should log in', (done) => {
         go().then(common.login).then(done)

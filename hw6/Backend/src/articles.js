@@ -7,6 +7,7 @@ var articles = { articles: [
 	{ id: 3, author: 'MOMO', text: 'article3', comments: [], date: new Date()}] 
 }
 
+// If id is provided, get information of the specific id's. Return all articles otherwise
 const getArticles = (req, res) => {
 	let id = req.params.id;
 	if (id) {

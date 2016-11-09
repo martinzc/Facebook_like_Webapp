@@ -12,9 +12,6 @@ const postFollowing = (req, res) => {
 	res.send({ username: "testUser", following: ["cz16"] })
 }
 
-
-
-
 module.exports = app => {
      app.get('/following', getFollowing)
      app.put('/following', putFollowing)

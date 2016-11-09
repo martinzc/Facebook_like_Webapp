@@ -14,6 +14,8 @@ const index = (req, res) => {
 }
 
 
+// If id is provided, get information of the specific id's. 
+// Return logged in user headline otherwise
 const getHeadlineUser = (req, res) => {
 	if (req.params.user) {
 		let userLst = req.params.user.split(",")
@@ -48,6 +50,8 @@ const getHeadline = (req, res) => {
 	}]})
 }
 
+// If id is provided, get information of the specific id's. 
+// Return logged in user email otherwise
 const getEmailUser = (req, res) => {
 	if (req.params.user) {
 		res.send({ 
@@ -70,6 +74,8 @@ const putEmail = (req, res) => {
 	})
 }
 
+// If id is provided, get information of the specific id's. 
+// Return logged in user zipcode otherwise
 const getZipcodeUser = (req, res) => {
 	if (req.params.user) {
 		res.send({ 
@@ -92,6 +98,8 @@ const putZipcode = (req, res) => {
 	})
 }
 
+// If id is provided, get information of the specific id's. 
+// Return logged in user avatar otherwise
 const getAvatarUser = (req, res) => {
 	if (req.params.user) {
 		res.send({ 
@@ -114,6 +122,7 @@ const putAvatar = (req, res) => {
 	})
 }
 
+// Stub
 const getDob = (req, res) => {
 	res.send({ 
 		username: profile.user,

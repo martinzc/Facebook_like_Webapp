@@ -12,10 +12,12 @@ const Login = ({dispatch}) => {
             <p className="lead">Please Log In</p>
             <div className="input-group">
                 <label htmlFor="text">Username: </label>
-                <input type="text" className="form-control" ref={(node) => username = node} id="username"></input>
+                <input type="text" className="form-control" ref={(node) => username = node} id="username">
+                </input>
                 <br></br>
                 <label htmlFor="password">Password: </label>
-                <input type="password" className="form-control" ref={(node) => password = node} id="password"></input>
+                <input type="password" className="form-control" ref={(node) => password = node} id="password">
+                </input>
                 <br></br>
                 <br></br>
                 <br></br>

@@ -12,6 +12,7 @@ export function fetchProfile() {
     }
 }
 
+// Return an action according to the function
 export const updateHeadline = (headline) => {return { type:"UPDATE_HEADLINE", headline }}
 export const updateAvatar = (avatar) => {return { type:"UPDATE_AVATAR", avatar }}
 export const updateZipcode = (zipcode) => {return { type:"UPDATE_ZIPCODE", zipcode }}
