@@ -13,12 +13,12 @@ export const ArticlesView = ({articles, avatars, keyword, username, dispatch, ge
       <div className="row">
         <div className="well well-lg">
           <input className="form-control" type="text" placeholder="Say Something"
-            ref={(node) => newArticleText = node }/>
+            ref={(node) => newArticleText = node } id="newArticleText"/>
           <input type="file"  accept="image/*" onChange = {(e) => {
                 const img = e.target.files[0]
                 fd.append('image', img)
             }}></input>
-          <button type="button" className="btn btn-primary center-block" 
+          <button type="button" className="btn btn-primary center-block"  id="newArticleBtn"
            onClick={() => {  
               if (newArticleText.value != '') {
                 fd.append('text', newArticleText.value)
@@ -30,7 +30,7 @@ export const ArticlesView = ({articles, avatars, keyword, username, dispatch, ge
       </div>
       <div className="row">
         <div className="well well-lg">
-          <input className="form-control" type="text" placeholder="Enter your search here"
+          <input id="searchField" className="form-control" type="text" placeholder="Enter your search here"
             ref={(node) => lockeyword = node }
             onChange={() => { dispatch(searchKeyword(lockeyword.value)) }}/>
         </div>

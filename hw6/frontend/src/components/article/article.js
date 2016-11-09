@@ -46,7 +46,7 @@ class Article extends Component {
             <div className="col-sm-1">
             </div>
             <div className="col-sm-10">
-                <p>{this.props.text}</p>
+                <p id="articleID">{this.props.text}</p>
             </div>
             <div className="col-sm-1">
             </div>
@@ -55,9 +55,9 @@ class Article extends Component {
           {
             this.props.author != this.props.username ? '' : 
             <div>
-              <input className="form-control" type="text" placeholder="Say Something"
+              <input id="editText" className="form-control" type="text" placeholder="Say Something"
                 ref={(node) => newArticleText = node }/>
-              <button type="button" className="btn btn-primary center-block" onClick={() => {  
+              <button id="editBtn" type="button" className="btn btn-primary center-block" onClick={() => {  
                 if (newArticleText.value != '') {
                   this.props.dispatch(updateArticle({text: newArticleText.value}, this.props._id))
                   newArticleText.value = ''

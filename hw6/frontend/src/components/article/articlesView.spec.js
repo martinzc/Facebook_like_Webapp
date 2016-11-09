@@ -15,7 +15,7 @@ describe('Test action functions', () => {
         let articles = [{_id: 0, username: 'test', author: 'testAuth', date: '000-000-000', text: 'testText',
             img: 'http://test.png', avatar: 'http://avatar.png', comments: [{}]}]
         let node = shallow(<ArticlesView username='' articles={articles}/>)
-        expect(node.children().length).to.equal(2)
+        expect(node.children().length).to.equal(3)
         done()
     })
 

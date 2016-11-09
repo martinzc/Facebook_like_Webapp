@@ -18,7 +18,7 @@ let ErrorMessage = ({error, success}) => (
         { success == '' ? '' :
             <div className="alert alert-success">
                 <div className="col-sm-1"></div>
-                <div className="col-sm-10">{ success }</div>
+                <div className="col-sm-10" id="successMsg">{ success }</div>
                 <div className="col-sm-1"></div>
                 <div className="row">&nbsp;</div>
             </div>

@@ -13,25 +13,25 @@ const Nav = ({location, dispatch}) => (
             <ul className="nav navbar-nav">
               <li className="active"><a href="#" onClick={()=>{
                 dispatch(navToMain())
-              }}>Home</a></li>
+              }} id="home">Home</a></li>
               <li><a href="#" onClick={()=>{
                 dispatch(navToProfile())
-              }}>Profile</a></li>
+              }} id="profile">Profile</a></li>
               <li><a href="#" onClick={()=>{
                 dispatch(logout())
-              }}>Log Out</a></li>
+              }} id="logout">Log Out</a></li>
             </ul>
             :
             <ul className="nav navbar-nav">
               <li><a href="#" onClick={()=>{
                 dispatch(navToMain())
-              }}>Home</a></li>
+              }} id="home">Home</a></li>
               <li className="active" onClick={()=>{
                 dispatch(navToProfile())
-              }}><a href="#">Profile</a></li>
+              }}><a href="#" id="profile">Profile</a></li>
               <li><a href="#" onClick={()=>{
                 dispatch(logout())
-              }}>Log Out</a></li>
+              }} id="logout">Log Out</a></li>
             </ul>
         }
       </div>

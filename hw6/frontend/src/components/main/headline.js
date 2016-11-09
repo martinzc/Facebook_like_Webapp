@@ -9,7 +9,7 @@ const Headline = ({ username, avatar, headline, dispatch}) => {
         <div>
             <img src={avatar} alt="Profile Pic" id="profilePic"></img>
             <p className="text-primary" id="username">{ username }</p>
-            <small className="text-info" id="status">Status: <br/>{ headline }</small>
+            <small className="text-info" id="status">Status: { headline }</small>
             <textarea className="form-control" rows="2" id="updateStatus" 
                 placeholder="Update your status" ref={ (node) => { newHeadline = node }}></textarea>
             <button type="button" className="btn btn-primary center-block" 

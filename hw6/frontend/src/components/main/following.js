@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { updateFollower, deleteFollower } from './followingActions'
 
 const Follower = ({name, avatar, headline, dispatch}) => (
-    <div className="well well-sm" id="followedUser">
+    <div className="well well-sm followedUser" id="followedUser">
         <img src={avatar} alt="Profile Pic" id="profilePic"></img>
         <p className="text-primary">{name}</p>
         <small className="text-info" id="status">{headline}
@@ -26,9 +26,9 @@ const Following = ({followers, dispatch}) => {
     return (
         <div>
         <div>
-          <input className="form-control" type="text" placeholder="user ID"
+          <input id="newFollowerText" className="form-control" type="text" placeholder="user ID"
             ref={(node) => newFollowUser = node }/>
-          <button type="button" className="btn btn-primary center-block" onClick={() => {  
+          <button id="followBtn" type="button" className="btn btn-primary center-block" onClick={() => {  
             if (newFollowUser.value != '') {
               dispatch(updateFollower(newFollowUser.value))
               newFollowUser.value = ''

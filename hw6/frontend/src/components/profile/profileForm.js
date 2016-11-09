@@ -47,7 +47,7 @@ const ProfileForm = ({oldEmail, oldZipcode, oldPw, oldDob, dispatch}) => {
             <input type="password" id="passwordConfirmation" name="inputVal"
                 ref={ (node) => { pwConf = node }}></input>
             </p>
-            <button type="submit" className="btn btn-primary" onClick={(e) => {  
+            <button id="changeBtn" type="submit" className="btn btn-primary" onClick={(e) => {  
                 e.preventDefault();
                 const payload = {
                     email: email.value, 
