@@ -1,4 +1,5 @@
 { 
 	"netid": "cz16",
-	"frontend": "icky-bean.surge.sh"
+   "frontend": "fill in",
+   "backend": "https://ricebookappcz16.herokuapp.com/"
 }
