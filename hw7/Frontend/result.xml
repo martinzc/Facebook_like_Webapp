@@ -1,0 +1,25 @@
+> starter@1.0.0 test /Users/martinzhou/Documents/Martin/Rice/Comp431/hw6/Frontend
+> mocha --opts mocha.opts src/**/*.spec.js "-R" "xunit"
+
+<testsuite name="Mocha Tests" tests="20" failures="0" errors="0" skipped="0" timestamp="Wed, 09 Nov 2016 03:07:18 GMT" time="1.048">
+<testcase classname="Test action functions" name="resource should be a resource / resource should be POSTable" time="0.002"/>
+<testcase classname="Test action functions" name="resource should give me the http error" time="0"/>
+<testcase classname="Test action functions" name="should update error message" time="0"/>
+<testcase classname="Test action functions" name="should update success message" time="0.001"/>
+<testcase classname="Test action functions" name="should navigate (to profile, main, or landing)" time="0"/>
+<testcase classname="Test Article" name="should fetch articles" time="0.001"/>
+<testcase classname="Test Article" name="should update the search keyword" time="0"/>
+<testcase classname="Test action functions" name="should render articles" time="0.008"/>
+<testcase classname="Test action functions" name="should dispatch actions to create a new article" time="0"/>
+<testcase classname="Test action functions" name="should filter displayed articles by the search keyword" time="0"/>
+<testcase classname="Test Authentication" name="should be able to login" time="0"/>
+<testcase classname="Test Authentication" name="should not be able to login with invalid account" time="0"/>
+<testcase classname="Test Authentication" name="should be able to logout" time="0"/>
+<testcase classname="Test profile action functions" name="should fetch profile information" time="0"/>
+<testcase classname="Test profile action functions" name="should update headline" time="0"/>
+<testcase classname="Test reducer" name="should initialize state" time="0.001"/>
+<testcase classname="Test reducer" name="should state success (for displaying success message to user)" time="0"/>
+<testcase classname="Test reducer" name="should state error (for displaying error message to user)" time="0"/>
+<testcase classname="Test reducer" name="should set the articles" time="0"/>
+<testcase classname="Test reducer" name="should set the search keyword" time="0"/>
+</testsuite>
