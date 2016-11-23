@@ -7,7 +7,8 @@ const stream = require('stream')
 const cloudinary = require('cloudinary')
 
 if (!process.env.CLOUDINARY_URL) {
-     process.env.CLOUDINARY_URL="cloudinary://524174641577485:AlyCR7-rFMBvM4FffscxvraFymQ@hrvgizk38"
+     process.env.CLOUDINARY_URL="cloudinary://524174641577485:AlyCR7" 
+     + "-rFMBvM4FffscxvraFymQ@hrvgizk38"
 }
 
 const doUpload = (publicName, req, res, next) => {

@@ -51,7 +51,8 @@ const login = (req, res) => {
 			return
 		}
 		// "security by obscurity" we don't want people guessing a sessionkey
-	   const sessionKey = md5("mySecretMessage" + new Date().getTime() + userObj.username)
+	   const sessionKey = md5("mySecretMessage" 
+	   	+ new Date().getTime() + userObj.username)
 	   sessionUser[sessionKey] = userObj.username
 	   // this sets a cookie
 	   res.cookie("sessionId", sessionKey, { maxAge: 3600*1000, httpOnly: true})

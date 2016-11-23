@@ -2,7 +2,8 @@
 
 var mongoose = require('mongoose')
 
-var url = 'mongodb://heroku_0h90ns6h:g3p3klj3siupu3ih4o3k4kva3f@ds159527.mlab.com:59527/heroku_0h90ns6h'
+var url = 'mongodb://heroku_0h90ns6h:g3p3klj3siupu3ih4o3k4k' 
++ 'va3f@ds159527.mlab.com:59527/heroku_0h90ns6h'
 
 var userSchema = new mongoose.Schema({
     username: String,

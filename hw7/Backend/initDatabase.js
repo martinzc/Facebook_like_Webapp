@@ -20,7 +20,8 @@ function login() {
 		json: { "username": cred.dummy_username, "password": cred.dummy_password }
 	}, function (err, res, body) {
 		if (err || body.result !== "success") {
-			console.error("There was an error logging into the dummy server with credentials: " + cred, err)
+			console.error("There was an error logging into the dummy server with credentials: " 
+				+ cred, err)
 			process.exit(1)
 		}		
 		getArticles()
@@ -29,7 +30,8 @@ function login() {
 
 var articlesToPost;
 function getArticles(cookie) {	
-	request({ url: cred.dummy_url + '/articles', method: 'GET', json:true }, function(err, res, body) {
+	request({ url: cred.dummy_url + '/articles', method: 'GET', json:true },
+	 function(err, res, body) {
 		if (err) {
 			console.error("There was an error grabbing articles from the dummy server", err)
 			process.exit(1)
@@ -45,7 +47,8 @@ function loginToSite() {
 		json: { "username": cred.site_username, "password": cred.site_password }
 	}, function(err, res, body) {
 		if (err) {
-			console.error("There was an error logging into YOUR server with credentials: " + cred, err)
+			console.error("There was an error logging into YOUR server with credentials: " 
+				+ cred, err)
 			process.exit(1)
 		}		
 		getArticleCount(sendArticles)
@@ -55,9 +58,11 @@ function loginToSite() {
 function sendArticles() {	
 	var article = articlesToPost.pop()
 	if (article) {		
-		request({ url: cred.site_url + '/article', method: 'POST', json: article }, function(err, res, body) {
+		request({ url: cred.site_url + '/article', method: 'POST', json: article },
+		 function(err, res, body) {
 			if (err) {
-				console.error("There was an error POSTing an article to YOUR server.  article=" + article, err)
+				console.error("There was an error POSTing an article to YOUR server.  article=" 
+					+ article, err)
 				process.exit(1)
 			}
 			sendArticles()
@@ -70,7 +75,8 @@ function sendArticles() {
 }
 
 function getArticleCount(next) {
-	request({ url: cred.site_url + '/articles', method: 'GET', json:true }, function(err, res, body) {
+	request({ url: cred.site_url + '/articles', method: 'GET', json:true },
+	 function(err, res, body) {
 		if (err) {
 			console.error("There was an error grabbing articles from YOUR server", err)
 			process.exit(1)
