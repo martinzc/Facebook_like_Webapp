@@ -1,0 +1,5 @@
+{ 
+	"netid": "cz16",
+   "frontend": "http://oceanic-party.surge.sh",
+   "backend": "https://ricebookapphw8.herokuapp.com"
+}
